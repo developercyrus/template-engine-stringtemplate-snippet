@@ -1,0 +1,24 @@
+select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        )

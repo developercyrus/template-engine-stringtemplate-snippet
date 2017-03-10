@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+$!
+====================================================== 
+= there must be a space after |
+======================================================
+!$
+$persons: { person | 
+    <tr>
+        <td>$person.id$</td>
+        <td>$person.name$</td>
+    </tr>}$
+</table>

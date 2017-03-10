@@ -1,0 +1,336 @@
+2017/03/10 15:05:42:219 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 101 - <ul>
+  <li>a</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  <li>b</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  <li>c</li>
+    <ul>
+      <li>1</li>
+    </ul>
+</ul>
+2017/03/10 15:05:42:224 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 106 - <ul>
+  <li>a</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  <li>b</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  <li>c</li>
+    <ul>
+      <li>1</li>
+    </ul>
+</ul>
+2017/03/10 15:05:42:229 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 73 - <table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sam</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Mary</td>
+    </tr>
+</table>
+2017/03/10 15:05:42:231 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 78 - <table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sam</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Mary</td>
+    </tr>
+</table>
+2017/03/10 15:05:42:304 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 51 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        ) 
+2017/03/10 15:05:42:308 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 56 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        ) 
+2017/03/10 15:05:42:312 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 35 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and USR.DEPT_ID = 'cars'
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        ) 
+2017/03/10 15:05:42:315 DEBUG [template.engine.stringtemplate.a1.StringTemplateBuilderTest]: 40 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and USR.DEPT_ID = 'cars'
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        ) 
+2017/03/10 15:05:42:336 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 105 - <ul>
+  <li>a</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  <li>b</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  <li>c</li>
+    <ul>
+      <li>1</li>
+    </ul>
+</ul>
+2017/03/10 15:05:42:339 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 111 - <ul>
+  <li>a</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  <li>b</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  <li>c</li>
+    <ul>
+      <li>1</li>
+    </ul>
+</ul>
+2017/03/10 15:05:42:343 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 76 - <table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sam</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Mary</td>
+    </tr>
+</table>
+2017/03/10 15:05:42:344 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 82 - <table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sam</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Mary</td>
+    </tr>
+</table>
+2017/03/10 15:05:42:358 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 53 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        )
+2017/03/10 15:05:42:360 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 59 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        )
+2017/03/10 15:05:42:362 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 36 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and USR.DEPT_ID = 'cars'
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        )
+2017/03/10 15:05:42:363 DEBUG [template.engine.stringtemplate.a2.StringTemplateBuildTest]: 42 - select
+        'no info' as DEPT_ID     
+        , '' as DEPT_NAME    
+        , URIGHT.USER_ID
+        , '' as USER_NAME
+        , ACC.ACCESS_ID
+        , ACC.ACCESS_OBJECT
+        , CONVERT(nvarchar(11), URIGHT.BEGIN_DATE, 106) AS EFF_DATE1
+        , CONVERT(nvarchar(11), URIGHT.END_DATE, 106) AS EFF_DATE2
+        , CONVERT(nvarchar(11), URIGHT.LAST_ACCESS_DATE, 106) as ACCESS_DATE   
+from    
+        CAR_USER_ACCESS URIGHT      
+        left join CAR_USER USR on URIGHT.USER_ID = USR.USER_ID
+        left join CAR_DEPARTMENT DEP on USR.DEPT_ID = DEP.DEPT_ID   
+        left join CAR_ACCESS ACC on URIGHT.ACCESS_RIGHT = ACC.ACCESS_RIGHT and URIGHT.ACCESS_ID = ACC.ACCESS_ID
+where 
+        1=1
+        and USR.DEPT_ID = 'cars'
+        and (
+            USR.USER_ID is NULL 
+            or (USR.ACTIVE = 'I' and URIGHT.SOURCE = '*')
+        )
+        and (
+            URIGHT.END_DATE IS NULL OR (URIGHT.END_DATE >= GETDATE() ) 
+        )

@@ -1,0 +1,19 @@
+map(x) ::= <<
+<ul>
+  <li>a</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  <li>b</li>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  <li>c</li>
+    <ul>
+      <li>1</li>
+    </ul>
+</ul>
+>>

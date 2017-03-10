@@ -1,0 +1,20 @@
+loop(persons) ::= <<
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sam</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Mary</td>
+    </tr>
+</table>
+>>
